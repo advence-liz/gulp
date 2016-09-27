@@ -6,3 +6,4 @@
 - <a href="http://jingyan.baidu.com/article/2a13832885099a074a134f97.html">nodejs+npm+bower+git+bootstrap组件环境配置</a>
 - <a href="http://www.cnblogs.com/xljzlw/p/5215529.html">在gulp 中使用bowser-sync </a>
 - <a href="http://wowubuntu.com/markdown/">markdown</a>
+- <a href="https://github.com/newbreedofgeek/html5-skeletor/blob/master/.gitignore">gitignore</a>
