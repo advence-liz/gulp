@@ -1,5 +1,6 @@
 //导入工具包 require('node_modules里对应模块')
 var gulp = require('gulp'), //本地安装gulp所用到的地方
+    clean=require('gulp-clean'),
     less = require('gulp-less');
     minifycss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
@@ -14,11 +15,14 @@ gulp.task('testLess', function () {
         .pipe(gulp.dest('dist/css'))
         
 });
+gulp.task('clean', function () {
+    return gulp.src('dist/', { read: false }).pipe(clean());
+});
 
   gulp.task('minifycss', function () {
     gulp.src('src/css/*.css') //该任务针对的文件
         .pipe(minifycss())
-        .pipe(gulp.dest('src/min'));
+        .pipe(gulp.dest('dist/min'));
 });
 //  gulp.watch('src/less/*.less', function(event) {
  // console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
