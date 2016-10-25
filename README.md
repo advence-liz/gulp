@@ -8,3 +8,4 @@
 - <a href="http://wowubuntu.com/markdown/">markdown</a>
 - <a href="https://github.com/newbreedofgeek/html5-skeletor/blob/master/.gitignore">gitignore</a>
 - <a href="http://www.cnblogs.com/xjcjcsy/p/4467751.html">Gulp livereload</a>
+- <a href="http://array_huang.coding.me/webpack-book/">webpack多页应用架构专题系列</a>
