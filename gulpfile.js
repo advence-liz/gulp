@@ -4,6 +4,7 @@ var gulp = require("gulp"), //本地安装gulp所用到的地方
     less = require("gulp-less"),
     minifycss = require("gulp-minify-css"),
     rename = require("gulp-rename"),
+    webpack = require("webpack-stream"),
     babel = require("gulp-babel");
 //定义一个testLess任务（自定义任务名称）
 gulp.task("testLess", function () {
@@ -19,19 +20,7 @@ gulp.task("clean", function () {
     return gulp.src("dist/", { read: false }).pipe(clean());
 });
 
-gulp.task("minifycss", function () {
-    gulp.src("src/css/*.css") //该任务针对的文件
-        .pipe(minifycss())
-        .pipe(gulp.dest("dist/min"));
-});
-//  gulp.watch('src/less/*.less', function(event) {
-// console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-//});
 
-gulp.task("testcb", function (cb) {
-    window.console.log("eeeeeee");
-    cb();
-});
 gulp.task("testbabel", function () {
     gulp.src("src/js/babel.js")
         .pipe(babel({
@@ -39,6 +28,23 @@ gulp.task("testbabel", function () {
         }))
         .pipe(gulp.dest("dist"));
 });
+
+gulp.task("syntax:js", function () {
+  return  gulp.src("syntaxhighlighter/build/pack.js")
+        .pipe(webpack({
+            output: {
+                filename: "syntax.js"
+            }
+        }))
+        .pipe(gulp.dest("syntaxhighlighter/dist"));
+});
+gulp.task("syntax:less", function () {
+    return gulp.src("syntaxhighlighter/build/pack.less") 
+        .pipe(less()) 
+        .pipe(rename("syntax.css"))
+        .pipe(gulp.dest("syntaxhighlighter/dist")) 
+});
+
 gulp.task("default", ["testLess", "minifycss"]); //定义默认任务
 
 //gulp.task(name[, deps], fn) 定义任务  name：任务名称 deps：依赖任务名称 fn：回调函数
