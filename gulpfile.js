@@ -1,10 +1,11 @@
 //导入工具包 require('node_modules里对应模块')
 var gulp = require("gulp"), //本地安装gulp所用到的地方
     clean = require("gulp-clean"),
-    less = require("gulp-less"),
+    // less = require("gulp-less"),
+    less = require('gulp-less-sourcemap'),
     minifycss = require("gulp-minify-css"),
     rename = require("gulp-rename"),
-    webpack = require("webpack-stream"),
+    // webpack = require("webpack-stream"),
     concat = require("gulp-concat"),
     uglify = require('gulp-uglify'),
     babel = require("gulp-babel");
@@ -31,15 +32,16 @@ gulp.task("testbabel", function () {
         .pipe(gulp.dest("dist"));
 });
 
-// gulp.task("syntax:js", function () {
-//   return  gulp.src("syntaxhighlighter/build/pack.js")
-//         .pipe(webpack({
-//             output: {
-//                 filename: "syntax.js"
-//             }
-//         }))
-//         .pipe(gulp.dest("syntaxhighlighter/dist"));
-// });
+gulp.task("less:source", function () {
+    gulp.src("src/less/index.less")
+    .pipe(less({
+        sourceMap: {
+            sourceMapRootpath: '../../src/less/' // Optional absolute or relative path to your LESS files// dir relative of dest
+        }
+    }))
+    .pipe(gulp.dest('./dist/css'));
+});
+
 gulp.task("syntax:less", function () {
     return gulp.src("syntaxhighlighter/build/pack.less")
         .pipe(less())
