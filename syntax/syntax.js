@@ -2183,4 +2183,4 @@ SyntaxHighlighter.brushes.Xml.prototype	= new SyntaxHighlighter.Highlighter();
 SyntaxHighlighter.brushes.Xml.aliases	= ['xml', 'xhtml', 'xslt', 'html'];
 
 //init
- SyntaxHighlighter.all();  
+ SyntaxHighlighter.all('code');  

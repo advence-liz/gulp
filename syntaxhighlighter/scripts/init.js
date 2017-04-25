@@ -1,2 +1,2 @@
 //init
- SyntaxHighlighter.all();  
+ SyntaxHighlighter.all('code');  
