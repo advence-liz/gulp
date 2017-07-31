@@ -11,3 +11,7 @@
 - <a href="http://array_huang.coding.me/webpack-book/">webpack多页应用架构专题系列</a>
 - <a href="https://www.w3ctech.com/topic/134">gulp开发教程</a>
 
+## other
+我也不知道为啥放在这了
+- index.js argv demo
+- rs.js    createReadStream

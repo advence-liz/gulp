@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "liz for gulo test",
   "dependencies": {
+    "argv": "0.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-less-sourcemap": "^1.4.3",
     "gulp-uglify": "^2.0.0",
+    "through2": "^2.0.3",
     "webpack-stream": "^3.2.0"
   },
   "devDependencies": {
