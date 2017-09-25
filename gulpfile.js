@@ -2,12 +2,15 @@
 "use strict";
 var gulp = require("gulp"), //本地安装gulp所用到的地方
     clean = require("gulp-clean"),
-    less = require('gulp-less-sourcemap'),
+    lessSourcemap = require('gulp-less-sourcemap'),
+    less = require("gulp-less"),
     rename = require("gulp-rename"),
     git = require('gulp-git'),
     concat = require("gulp-concat"),
     uglify = require('gulp-uglify'),
     babel = require("gulp-babel"),
+    path = require("path"),
+    sourcemaps = require('gulp-sourcemaps'),
     Q = require("q");
 
 gulp.task("clean", function () {
@@ -16,17 +19,26 @@ gulp.task("clean", function () {
 
 
 
-gulp.task("less:source", function () {
-    gulp.src("src/less/index.less")
-        .pipe(less({
+gulp.task("less:s", function () {
+    gulp.src(path.join('src', 'index.less'))
+        .pipe(lessSourcemap({
             sourceMap: {
-                sourceMapRootpath: '../../src/less/' // Optional absolute or relative path to your LESS files// dir relative of dest
+                //sourceMapURL: sourceMapFileName,
+                // sourceMapBasepath: lessFile.base,
+                sourceMapRootpath: '../src', // Optional absolute or relative path to your LESS files
+                sourceMapFileInline: false
             }
         }))
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('dist'));
 });
 
-
+gulp.task("less", function () {
+    gulp.src(path.join('src', 'index.less'))
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('dist'));
+});
 
 
 //gulp.task("default", ["testLess", "minifycss"]); //定义默认任务
