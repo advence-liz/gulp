@@ -15,13 +15,6 @@ gulp.task("clean", function () {
 });
 
 
-gulp.task("testbabel", function () {
-    gulp.src("src/js/babel.js")
-        .pipe(babel({
-            presets: ["es2015"]
-        }))
-        .pipe(gulp.dest("dist"));
-});
 
 gulp.task("less:source", function () {
     gulp.src("src/less/index.less")
@@ -33,25 +26,7 @@ gulp.task("less:source", function () {
         .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task("syntax:less", function () {
-    return gulp.src("syntaxhighlighter/build/pack.less")
-        .pipe(less())
-        .pipe(rename("syntax.css"))
-        .pipe(gulp.dest("syntaxhighlighter/dist"))
-});
 
-gulp.task("ss", function () {
-    return gulp.src(['syntaxhighlighter/scripts/shCore.js',
-        'syntaxhighlighter/scripts/shBrushCss.js',
-        'syntaxhighlighter/scripts/shBrushJScript.js',
-        'syntaxhighlighter/scripts/shBrushXml.js',
-        'syntaxhighlighter/scripts/init.js'])
-        .pipe(concat({ path: 'syntax.js' }))
-        .pipe(gulp.dest('./syntax/'))
-        .pipe(rename("syntax.min.js"))
-        .pipe(uglify())
-        .pipe(gulp.dest('./syntax/'))
-})
 
 
 //gulp.task("default", ["testLess", "minifycss"]); //定义默认任务
