@@ -10,8 +10,5 @@
 - <a href="http://www.cnblogs.com/xjcjcsy/p/4467751.html">Gulp livereload</a>
 - <a href="http://array_huang.coding.me/webpack-book/">webpack多页应用架构专题系列</a>
 - <a href="https://www.w3ctech.com/topic/134">gulp开发教程</a>
-
-## other
-我也不知道为啥放在这了
-- index.js argv demo
-- rs.js    createReadStream
+## 关于branch
+计划尝试不同的分支实现不同的solution
