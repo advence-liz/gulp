@@ -11,7 +11,9 @@
 - <a href="http://array_huang.coding.me/webpack-book/">webpack多页应用架构专题系列</a>
 - <a href="https://www.w3ctech.com/topic/134">gulp开发教程</a>
 
-## other
-我也不知道为啥放在这了
-- index.js argv demo
-- rs.js    createReadStream
+## sourcemap
+
+- sourceMappingURL css 中指向sourcemap的路径  路径设置为当前站点 这样项目中就可以不包含sourcemap了 这种操作应该跟 includeContent：false 配合更好
+- sourceMappingURLPrefix  前面的另一种实现方式
+- includeContent: false sourcemap 中不包含 源码
+- sourceRoot 跟上面的配合使用
