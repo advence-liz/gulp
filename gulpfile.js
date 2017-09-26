@@ -18,7 +18,9 @@ gulp.task("clean", function () {
 });
 
 
-
+/**
+ * 使用 gulp-less-sourcemap 完成功能，源码病并不打包进去sourcemap 中
+ */
 gulp.task("less:s", function () {
     gulp.src(path.join('src', 'index.less'))
         .pipe(lessSourcemap({
@@ -31,7 +33,9 @@ gulp.task("less:s", function () {
         }))
         .pipe(gulp.dest('dist'));
 });
-
+/**
+ * 源码存在sourceMap 文件中
+ */
 gulp.task("less", function () {
     gulp.src(path.join('src', 'index.less'))
         .pipe(sourcemaps.init())
@@ -39,7 +43,30 @@ gulp.task("less", function () {
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('dist'));
 });
-
+/**
+ * 源码不存在sourceMap 文件中
+ * @desc
+ * index.css                                                                         |    index.css.map
+ * sourceMappingURLPrefix  控制文件尾的SourceMapURL                                        includeContent  是否包含源码
+ * sourceRoot 输出的css 相对 源文件的位置 sourcemap 文件中包含 css 源map的相对位置关系  
+ * ```
+ * {"version":3,"sources":["var.less","index.less"],"names":[],
+ * "mappings":"AACA;EACI,WAAA;;ACWF;EAVE,4BAAA;EACF,yBAAA;EACA,uBAAA;EACA,oBAAA;;AASA,CAAC;EANC,YAAA;EACA,yBAAA;;AAaF;EACE,iBAAA;;AAEF;EACI,UAAA",
+ * "file":"../index.css","sourceRoot":"../../src"} 
+ * ```                                                                  
+ */
+gulp.task("less:nocode", function () {
+  return  gulp.src(path.join('src', 'index.less'))
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .pipe(sourcemaps.write('maps',
+            {
+                includeContent: false,
+                sourceRoot: path.join('..', 'src'),
+                sourceMappingURLPrefix: 'http://localhost:8000/dist'
+            }))
+        .pipe(gulp.dest('dist'));
+});
 
 //gulp.task("default", ["testLess", "minifycss"]); //定义默认任务
 
