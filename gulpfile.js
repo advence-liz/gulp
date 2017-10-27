@@ -25,7 +25,7 @@ gulp.task("less:s", function () {
     gulp.src(path.join('src', 'index.less'))
         .pipe(lessSourcemap({
             sourceMap: {
-                //sourceMapURL: sourceMapFileName,
+                sourceMapURL: 'http://10.2.165.40:8000/dist/gui/',
                 // sourceMapBasepath: lessFile.base,
                 sourceMapRootpath: '../src', // Optional absolute or relative path to your LESS files
                 sourceMapFileInline: false
