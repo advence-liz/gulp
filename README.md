@@ -1,5 +1,10 @@
-## 关注网摘
-> 前端自动化
+#  GULP
+----
+## Branch
+- master branch 作为脚手架
+- [sourcemap branch](https://github.com/advence-liz/gulp/tree/sourcesmap)整理几个通过gulp生成sourcemap的方案
+## REF
+- [through2](https://github.com/rvagg/through2)
 - <a href="https://github.com/bower/spec">bower guid</a>
 - <a href="https://github.com/hawx1993/resume-master">简例生成工具</a>
 - <a href="http://www.2cto.com/kf/201212/175989.html">强大的web包管理工具bower</a>
@@ -10,8 +15,3 @@
 - <a href="http://www.cnblogs.com/xjcjcsy/p/4467751.html">Gulp livereload</a>
 - <a href="http://array_huang.coding.me/webpack-book/">webpack多页应用架构专题系列</a>
 - <a href="https://www.w3ctech.com/topic/134">gulp开发教程</a>
-
-## other
-我也不知道为啥放在这了
-- index.js argv demo
-- rs.js    createReadStream
