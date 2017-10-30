@@ -3,25 +3,10 @@
   "version": "1.0.0",
   "description": "liz for gulo solution",
   "dependencies": {
-    "argv": "0.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-git": "^2.4.2",
-    "gulp-less-sourcemap": "^1.4.3",
-    "gulp-uglify": "^2.0.0",
-    "q": "^1.5.0",
-    "through2": "^2.0.3",
-    "webpack-stream": "^3.2.0"
+    "through2": "^2.0.3"
   },
   "devDependencies": {
     
-    "eslint": "^3.6.1",
-    "eslint-config-google": "^0.6.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-clean": "^0.3.2",
-    "gulp-less": "^3.1.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-rename": "^1.2.2"
   },
   "repository": {
     "type": "git",
