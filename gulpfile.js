@@ -1,5 +1,6 @@
 //导入工具包 require('node_modules里对应模块')
 "use strict";
+<<<<<<< HEAD
 const gulp = require("gulp"); //本地安装gulp所用到的地方
 // through2 是一个对 node 的 transform streams 简单封装
 const path = require("path");
@@ -48,6 +49,18 @@ gulp.task("pre",function(){
   .pipe(gulpPrefixer("liz"))
   .pipe(gulp.dest("dist"))
 })
+=======
+const gulp = require("gulp"),
+    path = require("path"),
+    prefixer = require("./gulpPrefixer.js");
+
+gulp.task("pre", function () {
+    return gulp.src(path.join('src', 'index.md'))
+        .pipe(prefixer("pre"))
+        .pipe(gulp.dest('dist'))
+})
+
+>>>>>>> b8dd7eb04f6ea32e8245c4d280190373c25bddb0
 
 
 gulp.task("pre",function(){

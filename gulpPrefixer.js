@@ -1,4 +1,5 @@
 // through2 是一个对 node 的 transform streams 简单封装
+"use strict";
 var through = require('through2');
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
