@@ -1,6 +1,6 @@
 //导入工具包 require('node_modules里对应模块')
 "use strict";
-<<<<<<< HEAD
+
 const gulp = require("gulp"); //本地安装gulp所用到的地方
 // through2 是一个对 node 的 transform streams 简单封装
 const path = require("path");
@@ -35,6 +35,7 @@ function gulpPrefixer(prefixText) {
       file.contents = Buffer.concat([prefixText, file.contents]);
     }
     if (file.isStream()) {
+        //相当于一个可读流写到可写流后面然后在输出
       file.contents = file.contents.pipe(prefixStream(prefixText));
     }
 
@@ -45,30 +46,14 @@ function gulpPrefixer(prefixText) {
 }
 
 gulp.task("pre",function(){
-  gulp.src("src/index.js")
-  .pipe(gulpPrefixer("liz"))
+  gulp.src("src/*")
+  .pipe(gulpPrefixer("lizz"))
   .pipe(gulp.dest("dist"))
 })
-=======
-const gulp = require("gulp"),
-    path = require("path"),
-    prefixer = require("./gulpPrefixer.js");
-
-gulp.task("pre", function () {
-    return gulp.src(path.join('src', 'index.md'))
-        .pipe(prefixer("pre"))
-        .pipe(gulp.dest('dist'))
-})
-
->>>>>>> b8dd7eb04f6ea32e8245c4d280190373c25bddb0
 
 
-gulp.task("pre",function(){
- 
- return gulp.src(path.join('src','index.js')) 
-  .pipe(gulpPrefixer("liz"))
-  .pipe(gulp.dest("dist"))
-})
+
+
 gulp.start("pre");
 //gulp.task("default", ["testLess", "minifycss"]); //定义默认任务
 
