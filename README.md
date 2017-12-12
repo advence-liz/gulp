@@ -22,7 +22,7 @@ gulp.task('build', function () {
 });
 ```
 - merge
-```
+```js
 gulp.task("copy", function () {
     var copyList = require("./copyFileList.json");
 
